@@ -27,7 +27,6 @@ class HomepageTest {
         mainActivityScenario.use {
             // Add your test code here
             HomepageHelper.waitForMainActivityToLoad(composeTestRule)
-            HomepageHelper.doSomethingElse(composeTestRule)
         }
     }
 }
