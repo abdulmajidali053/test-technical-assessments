@@ -28,7 +28,7 @@ Upon launching the app (Android), you’ll find:
 - **HomepageTests**: Houses all the tests related to functions and features on the Homepage.
 ---
 ## Assumptions
-The assumptions made are the tests are to be only ran on a virtual device, therefore they are not instrumented. Addtionally, there is no missing content from the Homepage, and that content displayed is all content available.
+- The assumptions made are the tests are to be only ran on a virtual device, therefore they are not instrumented. Addtionally, there is no missing content from the Homepage, and that content displayed is all content available.
 ---
 ## Getting Started
 
