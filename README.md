@@ -1,15 +1,5 @@
 # Test Technical Assessments
-
-This repository contains a sample mobile application implemented for both iOS and Android platforms. It demonstrates various UI components and serves as a foundation for testing various UI components and scenarios.
-
----
-
 ## Requirements
-
-### iOS
-- **Xcode**: Version 15.2 or later  
-- **iOS Deployment Target**: iOS 17.1 or later  
-
 ### Android
 - **Android Studio**: Version Ladybug or later  
 - **Android SDK**: API Level 26 or higher (running on the device only)  
