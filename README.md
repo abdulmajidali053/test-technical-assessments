@@ -32,10 +32,14 @@ This sample application includes the following UI components:
 Upon launching the app (Android), you’ll find:  
 - **Home Page**: Includes links to explore various UI components like Pickers, Buttons, and Alerts.  
 - **Content View**: A content-rich page for testing rendering, scrolling, and navigation capabilities.  
-- ***ComposeActions***: This is an addition to hold the logic for performing actions used by the test scripts
-- ****ComposeAssertions****: This is an addition to hold the logic for the assertions used by the test scripts
+- **ComposeActions**: This is an addition to hold the logic for performing actions used by the test scripts
+- **ComposeAssertions**: This is an addition to hold the logic for the assertions used by the test scripts
+- **HomepageHelper**: Handles the logic for finding elements/aspects on the Homepage.
+- **HomepageTests**: Houses all the tests related to functions and features on the Homepage.
 ---
-
+## Assumptions
+The assumptions made are the tests are to be only ran on a virtual device, therefore they are not instrumented. Addtionally, there is no missing content from the Homepage, and that content displayed is all content available.
+---
 ## Getting Started
 
 1. **Fork the Repository**:  
@@ -43,12 +47,13 @@ Upon launching the app (Android), you’ll find:
 
 2. **Open the Project in the Appropriate IDE**:  
    - For Android: Open the Android project in **Android Studio**.  
-   - For iOS: Open the `automation-swiftui` project in **Xcode**.
    - Ensure that you can successfully open and run the project on the chosen platform. 
 
-3. **Follow the Tech Home Test Brief**:
-     Follow the instructions mentioned in the "Take home technical test brief.pdf" sent to your email. 
-    
+3. **Running the tests**:
+    - Open HomepageTests.kt.
+    - Use the runner or run buttons to start the selected test.
+    - The IDE will start an AVD and notify when a test is completed.
+    - Tests that pass successfully present a green check mark, otherwise will give a yellow x with an error why.
 
 ---
 
