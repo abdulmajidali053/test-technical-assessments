@@ -29,10 +29,11 @@ This sample application includes the following UI components:
 
 ## Overview
 
-Upon launching the app (iOS or Android), you’ll find:  
+Upon launching the app (Android), you’ll find:  
 - **Home Page**: Includes links to explore various UI components like Pickers, Buttons, and Alerts.  
 - **Content View**: A content-rich page for testing rendering, scrolling, and navigation capabilities.  
-
+- ***ComposeActions***: This is an addition to hold the logic for performing actions used by the test scripts
+- ****ComposeAssertions****: This is an addition to hold the logic for the assertions used by the test scripts
 ---
 
 ## Getting Started
