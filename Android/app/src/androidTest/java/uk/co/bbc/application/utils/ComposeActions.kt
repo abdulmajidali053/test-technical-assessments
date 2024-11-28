@@ -19,10 +19,12 @@ object ComposeActions {
     fun performClickOnText(composeTestRule: ComposeTestRule, text: String) {
         composeTestRule.onNodeWithText(text).performClick()
     }
+    fun performClickOnTextSubstring(composeTestRule: ComposeTestRule, text: String) {
+        composeTestRule.onNodeWithText(text, true).performClick()
+    }
     fun enterText(composeTestRule: ComposeTestRule, testTag: String, text: String) {
         composeTestRule.onNodeWithTag(testTag).performTextInput(text)
     }
-
     fun scrollToTag(composeTestRule: ComposeTestRule, testTag: String) {
         composeTestRule.onNodeWithTag(testTag).performScrollTo()
     }

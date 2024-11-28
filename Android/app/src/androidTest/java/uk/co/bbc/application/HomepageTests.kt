@@ -102,50 +102,51 @@ class HomepageTests {
     }
     @Test /*Scenario 5*/
     fun testTVGuideAlertPickNo(){
-        composeTestRule.onNodeWithText("Politics").assertIsDisplayed()
-        composeTestRule.onNodeWithText("Politics").performClick()
-        composeTestRule.waitUntil {
-            composeTestRule.onNodeWithTag(TEST_TAG_DROPDOWN_MENU).isDisplayed()
-        }
-        composeTestRule.onNodeWithText("TV Guide").performClick()
-        composeTestRule.onNodeWithTag(TEST_TAG_GO_TO_BUTTON).performClick()
+        val currentTopic = "Politics"
+        ComposeAssertions.isDisplayedWithText(composeTestRule, currentTopic)
+        ComposeActions.performClickOnText(composeTestRule, currentTopic)
+        ComposeActions.waitUntilTagIsDisplayed(composeTestRule, TEST_TAG_DROPDOWN_MENU)
+        val newTopic = "TV Guide"
+        ComposeActions.performClickOnText(composeTestRule, newTopic)
+        ComposeActions.performClick(composeTestRule, TEST_TAG_GO_TO_BUTTON)
         composeTestRule.onNodeWithText("Do you have a TV license ?", true, true).assertIsDisplayed()
-        composeTestRule.onNodeWithText("No").performClick()
+        ComposeActions.performClickOnText(composeTestRule, "No")
         composeTestRule.waitUntil(2000) {
             composeTestRule.onNodeWithText("Do you have a TV license ?", true, true).isNotDisplayed()
         }
-        composeTestRule.onAllNodesWithContentDescription("BBC Logo")[0].assertIsDisplayed()
-        composeTestRule.onAllNodesWithContentDescription("BBC Logo")[1].assertIsDisplayed()
-        composeTestRule.onNodeWithText("favourite content", substring = true, ignoreCase = true).assertIsDisplayed()
+        ComposeAssertions.areDisplayed(composeTestRule,"BBC Logo", 0)
+        ComposeAssertions.areDisplayed(composeTestRule,"BBC Logo", 1)
+        ComposeAssertions.isDisplayedWithTextSubstring(composeTestRule, "favourite content")
     }
     @Test /*Scenario 6*/
     fun testTVGuideAlertPickYes(){
-        composeTestRule.onNodeWithText("Politics").assertIsDisplayed()
-        composeTestRule.onNodeWithText("Politics").performClick()
-        composeTestRule.waitUntil {
-            composeTestRule.onNodeWithTag(TEST_TAG_DROPDOWN_MENU).isDisplayed()
-        }
-        composeTestRule.onNodeWithText("TV Guide").performClick()
-        composeTestRule.onNodeWithTag(TEST_TAG_GO_TO_BUTTON).performClick()
+        val currentTopic = "Politics"
+        ComposeAssertions.isDisplayedWithText(composeTestRule, currentTopic)
+        ComposeActions.performClickOnText(composeTestRule, currentTopic)
+        ComposeActions.waitUntilTagIsDisplayed(composeTestRule, TEST_TAG_DROPDOWN_MENU)
+        val newTopic = "TV Guide"
+        ComposeActions.performClickOnText(composeTestRule, newTopic)
+        ComposeActions.performClick(composeTestRule, TEST_TAG_GO_TO_BUTTON)
         composeTestRule.onNodeWithText("Do you have a TV license ?", true, true).assertIsDisplayed()
-        composeTestRule.onNodeWithText("Yes").performClick()
+        ComposeActions.performClickOnText(composeTestRule, "Yes")
         composeTestRule.waitUntil(2000) {
             composeTestRule.onNodeWithText("Do you have a TV license ?", true, true).isNotDisplayed()
         }
-        composeTestRule.onNodeWithTag(TEST_TAG_BACK_BUTTON).assertIsDisplayed()
-        composeTestRule.onAllNodesWithText("TV Guide")[0].assertExists()
-        composeTestRule.onNodeWithTag(TEST_TAG_BACK_BUTTON).performClick()
-        composeTestRule.onAllNodesWithContentDescription("BBC Logo")[0].assertIsDisplayed()
-        composeTestRule.onAllNodesWithContentDescription("BBC Logo")[1].assertIsDisplayed()
-        composeTestRule.onNodeWithText("favourite content", substring = true, ignoreCase = true).assertIsDisplayed()
+        ComposeAssertions.isDisplayed(composeTestRule, TEST_TAG_BACK_BUTTON)
+        ComposeAssertions.isTitleDisplayed(composeTestRule, newTopic)
+        ComposeActions.performClick(composeTestRule, TEST_TAG_BACK_BUTTON)
+        ComposeAssertions.areDisplayed(composeTestRule,"BBC Logo", 0)
+        ComposeAssertions.areDisplayed(composeTestRule,"BBC Logo", 1)
+        ComposeAssertions.isDisplayedWithTextSubstring(composeTestRule, "favourite content")
     }
     @Test /*Scenario 7*/
     fun testBreakingNewsButtonError(){
-        composeTestRule.onNodeWithTag(TEST_TAG_BREAKING_NEWS_BUTTON).performClick()
-        composeTestRule.onNodeWithTag(TEST_TAG_ALERT_CONFIRM_BUTTON).assertIsDisplayed()
-        composeTestRule.onNodeWithTag(TEST_TAG_ALERT_CONFIRM_BUTTON).performClick()
-        composeTestRule.onAllNodesWithContentDescription("BBC Logo")[0].assertIsDisplayed()
-        composeTestRule.onAllNodesWithContentDescription("BBC Logo")[1].assertIsDisplayed()
-        composeTestRule.onNodeWithText("favourite content", substring = true, ignoreCase = true).assertIsDisplayed()
+        ComposeActions.performClick(composeTestRule, TEST_TAG_BREAKING_NEWS_BUTTON)
+        ComposeAssertions.isDisplayed(composeTestRule, TEST_TAG_ALERT_CONFIRM_BUTTON)
+        ComposeActions.performClick(composeTestRule, TEST_TAG_ALERT_CONFIRM_BUTTON)
+        ComposeAssertions.isNotDisplayed(composeTestRule, TEST_TAG_ALERT_CONFIRM_BUTTON)
+        ComposeAssertions.areDisplayed(composeTestRule,"BBC Logo", 0)
+        ComposeAssertions.areDisplayed(composeTestRule,"BBC Logo", 1)
+        ComposeAssertions.isDisplayedWithTextSubstring(composeTestRule, "favourite content")
     }
 }
